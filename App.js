@@ -1,14 +1,25 @@
 import React from 'react';
 import { Button, Text, View, TextInput } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import { KeyboardAvoidingView } from 'react-native';
+import HomeScreen from './src/components/screens/HomeScreen';
 
-class HomeScreen extends React.Component {
+class LoginScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Winter',
+    headerStyle: {
+      backgroundColor: 'rgb(103, 184, 242)',
+    },
+    headerTitleStyle: {
+      color: '#fff',
+    }
+  };
 
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: null,
+      password: null
     }
   }
 
@@ -22,10 +33,9 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+      <KeyboardAvoidingView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} enabled>
         <TextInput
-          style={{width: 200}}
+          style={{ width: 200 }}
           placeholder="email"
           autoCapitalize = "none"
           onChangeText={ this.changeEmailHandler }
@@ -34,49 +44,30 @@ class HomeScreen extends React.Component {
           style={{width: 200}}
           placeholder="senha"
           autoCapitalize = "none"
+          secureTextEntry={ true }
           onChangeText={ this.changePasswordHandler }
         />
         <Button
           title="Login"
           onPress={ () =>
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate('Home', {
               email: this.state.email,
               password: this.state.password
             }) }
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
 
-class DetailsScreen extends React.Component {
-  render() {
-
-    const { navigation } = this.props;
-    const email = navigation.getParam('email', 'null');
-    const password = navigation.getParam('password', 'null');
-
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Email: {email}</Text>
-        <Text>Password: {password}</Text>
-
-          <Button
-            title="Voltar"
-            onPress={ () => this.props.navigation.goBack() }
-          />
-      </View>
-    );
-  }
-}
 
 const RootStack = createStackNavigator(
   {
+    Login: LoginScreen,
     Home: HomeScreen,
-    Details: DetailsScreen,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
   }
 );
 
