@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Text, View, TextInput } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import { KeyboardAvoidingView } from 'react-native';
 import HomeScreen from './src/components/screens/HomeScreen';
 
@@ -61,7 +61,7 @@ class LoginScreen extends React.Component {
 }
 
 
-const RootStack = createStackNavigator(
+const RootStack = createBottomTabNavigator(
   {
     Login: LoginScreen,
     Home: HomeScreen,
