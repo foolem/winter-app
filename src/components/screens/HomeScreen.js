@@ -12,62 +12,36 @@ export default class HomeScreen extends React.Component {
     },
     headerTitleStyle: {
       color: '#fff',
-    }
+    },
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      uid: null,
-      access_token: null,
-      client: null,
       timeline_user_name: 'Nome',
       timeline_user_id: null,
-      logged_in: false,
       hasUsersToLike: false,
       common_preferences: [],
+      uid: null,
+      client: null,
+      access_token: null,
+      got_navigation_props: false
     }
   }
 
-  componentDidMount() {
-
-      if (this.state.logged_in == false) {
-        const { navigation } = this.props;
-        const email = navigation.getParam('email', 'null');
-        const password = navigation.getParam('password', 'null');
-        const password_confirmation = password;
-
-        const request = axios({
-          method: 'post',
-          url: 'http://192.168.11.8:3000/auth/sign_in',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          params: {
-            email: email,
-            password: password,
-          }
-        });
-
-        request.then((response) => response.headers).
-        then((headers) => {
-          this.setState({
-            uid: headers['uid'],
-            access_token: headers['access-token'],
-            client: headers['client'],
-          });
-        });
-
-        this.setState({ logged_in: true });
-      }
+  componentDidMount = () => {
+    if (this.state.got_navigation_props == false) {
+      this.setState({
+        access_token: this.props.navigation.getParam('access_token', 'null'),
+        uid: this.props.navigation.getParam('uid', 'null'),
+        client: this.props.navigation.getParam('client', 'null'),
+      }, () => {
+        this.setState({ got_navigation_props: true }, () => { this.handleRefreshTimeline() });
+      });
+    }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.access_token != this.state.access_token) {
-      this.handleSetupTimeline();
-    }
-
+  componentDidUpdate = (prevProps, prevState) => {
     if (prevState.timeline_user_id != this.state.timeline_user_id) {
       this.getCommonPreferences();
     }
@@ -75,10 +49,9 @@ export default class HomeScreen extends React.Component {
 
   handleLike = () => {
     if (this.state.hasUsersToLike) {
-
       const api_call = axios({
         method: 'POST',
-        url: `http://192.168.11.8:3000/user/like/${this.state.timeline_user_id}`,
+        url: `http://192.168.11.9:3000/user/like/${this.state.timeline_user_id}`,
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -93,6 +66,8 @@ export default class HomeScreen extends React.Component {
         const access = headers['access-token'] == "" ? this.state.access_token : headers['access-token'];
         this.setState({
           access_token: access,
+        }, () => {
+          this.handleRefreshTimeline();
         });
       });
 
@@ -100,17 +75,20 @@ export default class HomeScreen extends React.Component {
         if (!(response.hasOwnProperty('error'))) {
           this.setState({
             hasUsersToLike: true
+          }, () => {
+            this.handleRefreshTimeline();
           });
+
+          if (response.data.data.attributes['first-like'] === true && response.data.data.attributes['second-like'] === true) {
+            alert('match');
+          }
+
         } else {
-          this.setState({ hasUsersToLike: false });
+          this.setState({ hasUsersToLike: false }, () => {
+            this.handleRefreshTimeline();
+          });
         }
       });
-      // alert("LIKE COM SUCESSO");
-
-
-      this.handleRefreshTimeline();
-      this.getCommonPreferences();
-
     } else {
       alert('mas man n tem ngm');
     }
@@ -120,7 +98,7 @@ export default class HomeScreen extends React.Component {
     if (this.state.hasUsersToLike) {
       const api_call = axios({
         method: 'POST',
-        url: `http://192.168.11.8:3000/user/reject/${this.state.timeline_user_id}`,
+        url: `http://192.168.11.9:3000/user/reject/${this.state.timeline_user_id}`,
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -135,6 +113,8 @@ export default class HomeScreen extends React.Component {
         const access = headers['access-token'] == "" ? this.state.access_token : headers['access-token'];
         this.setState({
           access_token: access,
+        }, () => {
+          this.handleRefreshTimeline();
         });
       });
 
@@ -142,65 +122,24 @@ export default class HomeScreen extends React.Component {
         if (!(response.hasOwnProperty('error'))) {
           this.setState({
             hasUsersToLike: true
+          }, () => {
+            this.handleRefreshTimeline();
           });
         } else {
-          this.setState({ hasUsersToLike: false });
+          this.setState({ hasUsersToLike: false }, () => {
+            this.handleRefreshTimeline();
+          });
         }
       });
-
-      this.handleRefreshTimeline();
-      this.getCommonPreferences();
-      
-      // alert("DISLIKE COM SUCESSO");
-
     } else {
       alert('mas man n tem ngm');
     }
-
-  }
-
-  handleSetupTimeline = () => {
-    const api_call = axios({
-      method: 'GET',
-      url: 'http://192.168.11.8:3000/user/single_user_timeline',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'access-token': this.state.access_token,
-        'uid': this.state.uid,
-        'client': this.state.client
-      }
-    });
-
-    api_call.then((response) => response.headers).
-    then((headers) => {
-      const access = headers['access-token'] == "" ? this.state.access_token : headers['access-token'];
-      this.setState({
-        access_token: access,
-      });
-    });
-
-    api_call.then((response) => {
-      if (!(response.hasOwnProperty('error'))) {
-        this.setState({
-          timeline_user_name: response.data.data.attributes.name,
-          timeline_user_id: response.data.data.id,
-          timeline_user_age: response.data.data.attributes.age,
-          hasUsersToLike: true,
-        });
-      } else {
-        this.setState({ hasUsersToLike: false });
-      }
-    });
-
-
   }
 
   handleRefreshTimeline = () => {
-
     const api_call = axios({
       method: 'GET',
-      url: 'http://192.168.11.8:3000/user/single_user_timeline',
+      url: 'http://192.168.11.9:3000/user/single_user_timeline',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -219,15 +158,20 @@ export default class HomeScreen extends React.Component {
     });
 
     api_call.then((response) => {
-      if (!(response.hasOwnProperty('error'))) {
+      if (!(response.data.hasOwnProperty('error'))) {
         this.setState({
           timeline_user_name: response.data.data.attributes.name,
           timeline_user_id: response.data.data.id,
           timeline_user_age: response.data.data.attributes.age,
           hasUsersToLike: true
+        }, () => {
+          this.getCommonPreferences();
         });
       } else {
-        this.setState({ hasUsersToLike: false });
+        this.setState({
+          hasUsersToLike: false,
+          common_preferences: []
+         });
       }
     });
   }
@@ -235,7 +179,7 @@ export default class HomeScreen extends React.Component {
   getCommonPreferences = () => {
     const api_call = axios({
       method: 'get',
-      url: `http://192.168.11.8:3000/user/common_preferences/${this.state.timeline_user_id}`,
+      url: `http://192.168.11.9:3000/user/common_preferences/${this.state.timeline_user_id}`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -260,7 +204,11 @@ export default class HomeScreen extends React.Component {
       });
       if (common_preferences.length > 0) {
         this.setState({
-          common_preferences: common_preferences,
+          common_preferences: [],
+        }, () => {
+          this.setState({
+            common_preferences: common_preferences
+          })
         });
       }
     });
@@ -313,11 +261,6 @@ export default class HomeScreen extends React.Component {
 
 
   render() {
-
-    const { navigation } = this.props;
-    const email = navigation.getParam('email', 'null');
-    const password = navigation.getParam('password', 'null');
-
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(225, 239, 250)' }}>
 
@@ -328,7 +271,7 @@ export default class HomeScreen extends React.Component {
           />
         }
 
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 35 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             { this.state.common_preferences.map((p) => {
                 return(this.getAreaIcon(p))
               })
@@ -340,7 +283,7 @@ export default class HomeScreen extends React.Component {
           { this.state.hasUsersToLike &&
             <Icon
               raised
-              reverse
+
               name='close'
               type='evilicon'
               color='rgb(238, 85, 85)'
@@ -352,7 +295,6 @@ export default class HomeScreen extends React.Component {
           { this.state.hasUsersToLike &&
             <Icon
               raised
-              reverse
               name='heart'
               type='evilicon'
               color='rgb(89, 180, 251)'
@@ -362,19 +304,19 @@ export default class HomeScreen extends React.Component {
           }
 
           { !(this.state.hasUsersToLike) &&
-            <View style={{flexDirection: 'column', alignItems: 'center'}}>
+            <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
               <Icon
                 name='emoticon-sad'
                 type='material-community'
-                color='rgb(128, 240, 114)'
-                size={80}
+                color='rgb(89, 180, 251)'
+                size={70}
               />
-              <Text style={{marginTop: 50, fontSize: 36}}>
-                NGM PRA DAR LIKE
+              <Text style={{ marginTop: 20, marginBottom: 20, fontSize: 20 }}>
+                ninguém para dar like
               </Text>
               <Button
                 title='Tentar novamente'
-                onPress={ () => this.handleSetupTimeline() }
+                onPress={ () => this.handleRefreshTimeline() }
               />
             </View>
           }

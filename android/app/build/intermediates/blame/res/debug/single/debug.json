@@ -12,12 +12,12 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xxxhdpi/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/anim_abc_slide_in_top.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/anim/abc_slide_in_top.xml"
-    },
-    {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/anim_abc_slide_in_top.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/anim/abc_slide_in_top.xml"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -32,44 +32,48 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/layout_notification_template_big_media.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/layout/notification_template_big_media.xml"
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_dark.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_dark.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable/abc_list_selector_holo_dark.xml"
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/layout_notification_template_big_media.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/layout/notification_template_big_media.xml"
     },
     {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_list_focused_holo.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_list_focused_holo.9.png"
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_node_modules_reactnavigation_src_views_assets_backicon.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-hdpi/node_modules_reactnavigation_src_views_assets_backicon.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/layout_abc_action_mode_bar.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/layout/abc_action_mode_bar.xml"
     },
     {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_list_focused_holo.9.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_list_focused_holo.9.png"
+    },
+    {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/color-v23_abc_color_highlight_material.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/color-v23/abc_color_highlight_material.xml"
     },
     {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_btn_check_to_on_mtrl_000.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-hdpi/abc_btn_check_to_on_mtrl_000.png"
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ic_go_search_api_mtrl_alpha.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_ic_go_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_list_selector_disabled_holo_dark.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png"
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-hdpi/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -132,6 +136,10 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xxhdpi/abc_ic_clear_mtrl_alpha.png"
     },
     {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnativeelements_src_rating_images_star.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-mdpi/node_modules_reactnativeelements_src_rating_images_star.png"
+    },
+    {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-hdpi/abc_ic_menu_share_mtrl_alpha.png"
     },
@@ -174,6 +182,10 @@
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_rating_star_on_mtrl_alpha.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xhdpi/abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_node_modules_reactnavigation_src_views_assets_backicon.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-xxhdpi/node_modules_reactnavigation_src_views_assets_backicon.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -234,6 +246,10 @@
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/anim_abc_slide_out_top.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnativeelements_src_rating_images_rocket.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-mdpi/node_modules_reactnativeelements_src_rating_images_rocket.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi_abc_ic_ab_back_mtrl_am_alpha.png.flat",
@@ -548,6 +564,10 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/10b05235c0579b14ce8e3e0d6e0736a2/res/layout/redbox_view.xml"
     },
     {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnativeelements_src_rating_images_heart.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-mdpi/node_modules_reactnativeelements_src_rating_images_heart.png"
+    },
+    {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xhdpi/abc_tab_indicator_mtrl_alpha.9.png"
     },
@@ -604,6 +624,10 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-xxhdpi/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnavigation_src_views_assets_backicon.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-mdpi/node_modules_reactnavigation_src_views_assets_backicon.png"
+    },
+    {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-ldrtl-xxxhdpi/abc_ic_menu_cut_mtrl_alpha.png"
     },
@@ -626,6 +650,10 @@
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_icon.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_node_modules_reactnavigation_src_views_assets_backicon.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-xxxhdpi/node_modules_reactnavigation_src_views_assets_backicon.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -678,6 +706,10 @@
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-ldrtl-mdpi/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnavigation_src_views_assets_backiconmask.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-mdpi/node_modules_reactnavigation_src_views_assets_backiconmask.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -832,6 +864,10 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable-ldrtl-hdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_node_modules_reactnavigation_src_views_assets_backicon.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-xhdpi/node_modules_reactnavigation_src_views_assets_backicon.png"
+    },
+    {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_light.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/color/abc_primary_text_disable_only_material_light.xml"
     },
@@ -898,6 +934,10 @@
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable_abc_text_cursor_material.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_node_modules_reactnativeelements_src_rating_images_bell.png.flat",
+        "source": "/home/nicole/Documentos/winter-app/android/app/src/main/res/drawable-mdpi/node_modules_reactnativeelements_src_rating_images_bell.png"
     },
     {
         "merged": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_tab_indicator_mtrl_alpha.9.png.flat",
