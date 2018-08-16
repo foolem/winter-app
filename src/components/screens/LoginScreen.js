@@ -11,7 +11,7 @@ export default class LoginScreen extends React.Component {
     },
     headerTitleStyle: {
       color: '#fff',
-    }
+    },
   };
 
   constructor(props) {
@@ -37,7 +37,7 @@ export default class LoginScreen extends React.Component {
   handleLogin = () => {
     const request = axios({
       method: 'post',
-      url: 'http://192.168.11.9:3000/auth/sign_in',
+      url: 'http://192.168.11.13:3000/auth/sign_in',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default class LoginScreen extends React.Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} enabled>
+      <KeyboardAvoidingView style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(225, 239, 250)' }} enabled>
         <TextInput
           style={{ width: 200 }}
           placeholder="email"
