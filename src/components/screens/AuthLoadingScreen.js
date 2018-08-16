@@ -27,7 +27,7 @@ export default class LoginScreen extends React.Component {
     if (this.state.logged_in == false) {
       const request = axios({
         method: 'post',
-        url: 'http://192.168.11.13:3000/auth/sign_in',
+        url: 'https://1535904b.ngrok.io/auth/sign_in',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',

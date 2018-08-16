@@ -36,17 +36,11 @@ export default class HomeScreen extends React.Component {
     }
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    if (prevState.timeline_user_id != this.state.timeline_user_id) {
-      this.getCommonPreferences();
-    }
-  }
-
   handleLike = () => {
     if (this.state.hasUsersToLike) {
       const api_call = axios({
         method: 'POST',
-        url: `http://192.168.11.13:3000/user/like/${this.state.timeline_user_id}`,
+        url: `https://1535904b.ngrok.io/user/like/${this.state.timeline_user_id}`,
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -64,7 +58,7 @@ export default class HomeScreen extends React.Component {
           alert('sim');
           const request = axios({
             method: 'post',
-            url: 'http://192.168.11.13:3000/auth/sign_in',
+            url: 'https://1535904b.ngrok.io/auth/sign_in',
             headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
@@ -95,28 +89,30 @@ export default class HomeScreen extends React.Component {
         this.setState({
           access_token: access,
         }, () => {
-          this.handleRefreshTimeline();
+
+          api_call.then((response) => {
+            if (!(response.hasOwnProperty('error'))) {
+              this.setState({
+                hasUsersToLike: true
+              }, () => {
+                this.handleRefreshTimeline();
+              });
+
+              if (response.data.data.attributes['first-like'] === true && response.data.data.attributes['second-like'] === true) {
+                alert('match');
+              }
+
+            } else {
+              this.setState({ hasUsersToLike: false }, () => {
+                this.handleRefreshTimeline();
+              });
+            }
+          });
+
         });
       });
 
-      api_call.then((response) => {
-        if (!(response.hasOwnProperty('error'))) {
-          this.setState({
-            hasUsersToLike: true
-          }, () => {
-            this.handleRefreshTimeline();
-          });
 
-          if (response.data.data.attributes['first-like'] === true && response.data.data.attributes['second-like'] === true) {
-            alert('match');
-          }
-
-        } else {
-          this.setState({ hasUsersToLike: false }, () => {
-            this.handleRefreshTimeline();
-          });
-        }
-      });
     } else {
       alert('mas man n tem ngm');
     }
@@ -126,7 +122,7 @@ export default class HomeScreen extends React.Component {
     if (this.state.hasUsersToLike) {
       const api_call = axios({
         method: 'POST',
-        url: `http://192.168.11.13:3000/user/reject/${this.state.timeline_user_id}`,
+        url: `https://1535904b.ngrok.io/user/reject/${this.state.timeline_user_id}`,
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -136,28 +132,61 @@ export default class HomeScreen extends React.Component {
         }
       });
 
+      api_call.then((response) => {
+        if (response.status == 200) {
+        }
+      }).catch(error => {
+        if(error.request.status == 401) {
+          alert('sim');
+          const request = axios({
+            method: 'post',
+            url: 'https://1535904b.ngrok.io/auth/sign_in',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            params: {
+              email: this.state.uid,
+              password: '123123123',
+            }
+          });
+
+          request.then((response) => response.headers).
+          then((headers) => {
+            this.setState({
+              uid: headers['uid'],
+              access_token: headers['access-token'],
+              client: headers['client'],
+            }, () => {
+              this.handleDislike();
+              return;
+            });
+          });
+        }
+      });
+
       api_call.then((response) => response.headers).
       then((headers) => {
         const access = headers['access-token'] == "" ? this.state.access_token : headers['access-token'];
         this.setState({
           access_token: access,
         }, () => {
-          this.handleRefreshTimeline();
-        });
-      });
 
-      api_call.then((response) => {
-        if (!(response.hasOwnProperty('error'))) {
-          this.setState({
-            hasUsersToLike: true
-          }, () => {
-            this.handleRefreshTimeline();
+          api_call.then((response) => {
+            if (!(response.hasOwnProperty('error'))) {
+              this.setState({
+                hasUsersToLike: true
+              }, () => {
+                this.handleRefreshTimeline();
+              });
+            } else {
+              this.setState({ hasUsersToLike: false }, () => {
+                this.handleRefreshTimeline();
+              });
+            }
           });
-        } else {
-          this.setState({ hasUsersToLike: false }, () => {
-            this.handleRefreshTimeline();
-          });
-        }
+
+        });
       });
     } else {
       alert('mas man n tem ngm');
@@ -167,7 +196,7 @@ export default class HomeScreen extends React.Component {
   handleRefreshTimeline = () => {
     const api_call = axios({
       method: 'GET',
-      url: 'http://192.168.11.13:3000/user/single_user_timeline',
+      url: 'https://1535904b.ngrok.io/user/single_user_timeline',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -179,36 +208,37 @@ export default class HomeScreen extends React.Component {
 
     api_call.then((response) => response.headers).
     then((headers) => {
-      // console.warn(headers);
       const access = headers['access-token'] == "" ? this.state.access_token : headers['access-token'];
       this.setState({
         access_token: access,
-      });
-    });
+      }, () => {
 
-    api_call.then((response) => {
-      if (!(response.data.hasOwnProperty('error'))) {
-        this.setState({
-          timeline_user_name: response.data.data.attributes.name,
-          timeline_user_id: response.data.data.id,
-          timeline_user_age: response.data.data.attributes.age,
-          hasUsersToLike: true
-        }, () => {
-          this.getCommonPreferences();
+        api_call.then((response) => {
+          if (!(response.data.hasOwnProperty('error'))) {
+            this.setState({
+              timeline_user_name: response.data.data.attributes.name,
+              timeline_user_id: response.data.data.id,
+              timeline_user_age: response.data.data.attributes.age,
+              hasUsersToLike: true
+            }, () => {
+              this.getCommonPreferences();
+            });
+          } else {
+            this.setState({
+              hasUsersToLike: false,
+              common_preferences: []
+             });
+          }
         });
-      } else {
-        this.setState({
-          hasUsersToLike: false,
-          common_preferences: []
-         });
-      }
+
+      });
     });
   }
 
   getCommonPreferences = () => {
     const api_call = axios({
       method: 'get',
-      url: `http://192.168.11.13:3000/user/common_preferences/${this.state.timeline_user_id}`,
+      url: `https://1535904b.ngrok.io/user/common_preferences/${this.state.timeline_user_id}`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -223,23 +253,25 @@ export default class HomeScreen extends React.Component {
       const access = headers['access-token'] == "" ? this.state.access_token : headers['access-token'];
       this.setState({
         access_token: access,
-      });
-    });
+      }, () => {
 
-    api_call.then((response) => {
-      let common_preferences = [];
-      response.data.map((p) => {
-        common_preferences.push(p.area_id);
-      });
-      if (common_preferences.length > 0) {
-        this.setState({
-          common_preferences: [],
-        }, () => {
-          this.setState({
-            common_preferences: common_preferences
-          })
+        api_call.then((response) => {
+          let common_preferences = [];
+          response.data.map((p) => {
+            common_preferences.push(p.area_id);
+          });
+          if (common_preferences.length > 0) {
+            this.setState({
+              common_preferences: [],
+            }, () => {
+              this.setState({
+                common_preferences: common_preferences
+              })
+            });
+          }
         });
-      }
+
+      });
     });
   }
 

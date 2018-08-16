@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/nicole/Documentos/winter-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+            "outputFile": "/home/foolem/Documents/winter-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/ea42560e020e8ddf87e675ff7b24eb7b/res/values-v14/values-v14.xml",
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/c5450462f3302bc3f2902e671c66091c/res/values-v14/values-v14.xml",
                     "from": {
                         "startLines": "4,11,12,13,19,27,28,29,32,33",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

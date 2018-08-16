@@ -51,7 +51,7 @@ export default class UserMatchedScreen extends React.Component {
   loadUser = () => {
     const api_call = axios({
       method: 'GET',
-      url: `http://192.168.11.13:3000/user/info/${this.state.user.id}`,
+      url: `https://1535904b.ngrok.io/user/info/${this.state.user.id}`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

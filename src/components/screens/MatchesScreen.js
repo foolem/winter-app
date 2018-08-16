@@ -46,13 +46,46 @@ export default class MatchesScreen extends React.Component {
   loadMatches = () => {
     const api_call = axios({
       method: 'GET',
-      url: 'http://192.168.11.13:3000/user/matches',
+      url: 'https://1535904b.ngrok.io/user/matches',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         'access-token': this.state.access_token,
         'uid': this.state.uid,
         'client': this.state.client
+      }
+    });
+
+    api_call.then((response) => {
+      if (response.status == 200) {
+      }
+    }).catch(error => {
+      if(error.request.status == 401) {
+        alert('sim');
+        const request = axios({
+          method: 'post',
+          url: 'https://1535904b.ngrok.io/auth/sign_in',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          params: {
+            email: this.state.uid,
+            password: '123123123',
+          }
+        });
+
+        request.then((response) => response.headers).
+        then((headers) => {
+          this.setState({
+            uid: headers['uid'],
+            access_token: headers['access-token'],
+            client: headers['client'],
+          }, () => {
+            this.loadMatches();
+            return;
+          });
+        });
       }
     });
 
